@@ -1,0 +1,7 @@
+<div *ngIf="$note | async as note; else loading">
+  <h2>{{ note.title }}</h2>
+  <p>{{ note.content }}</p>
+</div>
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
