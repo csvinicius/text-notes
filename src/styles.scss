@@ -9,6 +9,14 @@ body * {
   font-style: normal;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
 // colors
 $primary-color: #06929f;
 $secondary-color: #003A40;
@@ -28,6 +36,12 @@ $item-margin: 0.9rem;
 
 // theme 
 $border-radius: 0.5rem;
+
+.container {
+  max-width: $desktop-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
 // texts styles
 $font-weight-bold: 700;

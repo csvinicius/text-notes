@@ -1,3 +1,10 @@
 <header>
-  <button class="btn-add" (click)="navigateToCreateNote()">Nova Nota</button>
+  <div class="container">
+    <div class="header__content">
+      <a [routerLink]="['/']">
+        <h2>Text Notes</h2>
+      </a>
+      <button class="header__btn-action" [routerLink]="['/', 'text-notes','create']">Nova Nota</button>
+    </div>
+  </div>
 </header>

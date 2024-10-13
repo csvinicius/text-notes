@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(private _router: Router) { }
-
-  navigateToCreateNote() {
-    this._router.navigate(['/text-notes/create']);
-  }
+  constructor() { }
 }
