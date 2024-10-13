@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-text-notes-list',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TextNoteItemComponent],
+  imports: [CommonModule, TextNoteItemComponent],
   templateUrl: './text-notes-list.component.html',
   styleUrl: './text-notes-list.component.scss'
 })

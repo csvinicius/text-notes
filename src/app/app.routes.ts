@@ -4,8 +4,8 @@ export const routes: Routes = [
   {
     path: 'text-notes',
     loadChildren: () =>
-      import('./text-notes/text-notes-list.module').then(
-        (m) => m.TextNotesListModule
+      import('./text-notes/text-notes.module').then(
+        (m) => m.TextNotesModule
       )
   },
   { path: '', redirectTo: '/text-notes', pathMatch: 'full' },
