@@ -1,10 +1,15 @@
-<div class="container">
-  <div *ngIf="$notesList | async as notes; else loading" class="text-notes__container">
-    <div *ngFor="let note of notes">
-      <app-text-note-item [note]="note" (refresh-list)="getNotesList()"></app-text-note-item>
+<div class="list-content">
+  <div class="container">
+    <div *ngIf="$notesList | async as notes; else loading" class="list-content__items">
+      <div *ngFor="let note of notes">
+        <app-text-note-item [note]="note" (refresh-list)="getNotesList()"></app-text-note-item>
+      </div>
     </div>
   </div>
+
   <ng-template #loading>
-    <div>Loading...</div>
+    <div class="loading-container">
+      <img src="/loading.gif" alt="">
+    </div>
   </ng-template>
 </div>
