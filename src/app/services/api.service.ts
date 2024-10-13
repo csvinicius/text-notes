@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { ITextNotes } from '../interfaces/text-notes';
+import { ITextNotes } from '../text-notes/text-notes.model';
 
 @Injectable({
   providedIn: 'root'

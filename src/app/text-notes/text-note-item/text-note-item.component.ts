@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ITextNotes } from '../../text-notes/text-notes.model';
+import { ITextNotes } from '../text-notes.model';
 import { catchError, of, pipe, switchMap, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';

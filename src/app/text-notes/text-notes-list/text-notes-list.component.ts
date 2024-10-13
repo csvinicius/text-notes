@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { MessageService } from '../../services/message.service';
-import { ITextNotes } from '../../text-notes/text-notes.model';
+import { ITextNotes } from '../text-notes.model';
 import { Observable, Subscription } from 'rxjs';
-import { TextNoteItemComponent } from "../../text-notes/text-note-item/text-note-item.component";
+import { TextNoteItemComponent } from "../text-note-item/text-note-item.component";
 import { RouterOutlet } from '@angular/router';
 
 @Component({

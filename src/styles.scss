@@ -1,98 +1,35 @@
-$primary: #ffff99;
-$add-color: #2ecc71;
-$delete-color: #e74c3c;
-$text-color: #333;
-$border-radius: 8px;
-$item-padding: 16px;
-$item-margin: 12px;
-
-html,
-body {
-  height: 100%;
-}
-
 body {
   margin: 0;
+  padding: 0;
 }
 
 body * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-.header {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  padding: 20px 0;
-  margin: 10px;
-  border-bottom: 1px solid #ddd;
+// colors
+$primary-color: #06929f;
+$secondary-color: #003A40;
+$warn-color: #F54766;
+$white-color: #fff;
+$black-color: #000;
+$text-color: #333;
 
-  .btn-add {
-    background-color: $add-color;
-    color: #fff;
-    border: none;
-    border-radius: $border-radius;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+// responsive
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1366px;
 
-    &:hover {
-      background-color: darken($add-color, 10%);
-    }
-  }
-}
+// spacing 
+$item-padding: 1rem;
+$item-margin: 0.9rem;
 
+// theme 
+$border-radius: 0.5rem;
 
-.text-notes__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 30px;
-  margin: 10px;
-  overflow: hidden;
-
-  .text-note-item__container {
-    background-color: $primary;
-    border: 1px solid #ccc;
-    border-radius: $border-radius;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    padding: $item-padding;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    aspect-ratio: 1;
-    width: 100%;
-
-    .text-note-item__title {
-      font-size: 1.2em;
-      color: $text-color;
-      margin: 0;
-      text-align: center;
-    }
-
-    .text-note-item__btn-delete {
-      background-color: $delete-color;
-      color: #fff;
-      border: none;
-      border-radius: $border-radius;
-      padding: 8px 12px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: darken($delete-color, 10%);
-      }
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .text-notes__container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 40px;
-  }
-}
+// texts styles
+$font-weight-bold: 700;
+$font-weight-medium: 400;
+$font-weight-light: 300;

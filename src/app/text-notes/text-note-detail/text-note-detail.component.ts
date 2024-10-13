@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { ITextNotes } from '../../text-notes/text-notes.model';
+import { ITextNotes } from '../text-notes.model';
 import { ApiService } from '../../services/api.service';
 import { MessageService } from '../../services/message.service';
 import { CommonModule } from '@angular/common';
