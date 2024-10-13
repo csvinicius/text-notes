@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITextNotes } from '../text-notes.model';
-import { catchError, of, pipe, switchMap, tap } from 'rxjs';
+import { of, switchMap, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-text-note-item',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './text-note-item.component.html',
   styleUrl: './text-note-item.component.scss'
 })
@@ -15,7 +15,7 @@ export class TextNoteItemComponent {
   @Input('note') note: ITextNotes;
   @Output('refresh-list') refreshList: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private _apiService: ApiService, private _router: Router) {}
+  constructor(private _apiService: ApiService) { }
 
   deleteNote(id: Number | undefined): void {
     of(null)
@@ -28,10 +28,6 @@ export class TextNoteItemComponent {
         })
       )
       .subscribe();
-  }
-
-  navigateToEditNote(id: Number | undefined) {
-    this._router.navigate([`/text-notes/${id}`]);
   }
 
 }

@@ -1,15 +1,15 @@
 @if(!noteId) {
-  <div>
-    <h3>
-      <input type="text" [(ngModel)]="data.title" />
-    </h3>
-  
-    <p>
-      <input [(ngModel)]="data.content" />
-    </p>
+<div>
+  <h3>
+    <input type="text" [(ngModel)]="data.title" />
+  </h3>
 
-    <button class="btn-add" (click)="createNote(data)">Salvar</button>
-  </div>
+  <p>
+    <textarea [(ngModel)]="data.content"></textarea>
+  </p>
+
+  <button class="btn-add" (click)="createNote(data)">Salvar</button>
+</div>
 } @else {
 <div *ngIf="$note | async as note; else loading">
   <h3>
@@ -17,7 +17,7 @@
   </h3>
 
   <p>
-    <input [(ngModel)]="note.content" />
+    <textarea [(ngModel)]="note.content"></textarea>
   </p>
   <button class="btn-add" (click)="createNote(data)">Salvar</button>
 </div>

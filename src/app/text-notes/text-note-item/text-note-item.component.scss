@@ -6,20 +6,27 @@
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   padding: $item-padding;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-
-  &:hover {
-    cursor: pointer;
-  }
+  align-items: flex-start;
 }
 
-.text-note-item__title {
-  color: $text-color;
-  font-size: 1.2rem;
-  margin: 0;
-  text-align: center;
+.text-note-item__content {
+  cursor: pointer;
+  
+  .text-note-item__title {
+    color: $text-color;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .text-note-item__text {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
 }
 
 .text-note-item__btn-delete {
@@ -29,6 +36,7 @@
   border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  padding: 0.3rem 1rem;
 
   &:hover {
     background-color: darken($warn-color, 10%);
