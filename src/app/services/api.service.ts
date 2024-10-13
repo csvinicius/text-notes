@@ -7,12 +7,12 @@ import { ITextNotes } from '../interfaces/text-notes';
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly apiUrl = 'https://6709d2e3af1a3998baa26b1d.mockapi.io/api/v1';
+  private readonly baseUrl = 'https://6709d2e3af1a3998baa26b1d.mockapi.io/api/v1';
 
   constructor(private http: HttpClient) { }
 
   getAll(endpoint: string): Observable<ITextNotes[]> {
-    return this.http.get<ITextNotes[]>(`${this.apiUrl}/${endpoint}`)
+    return this.http.get<ITextNotes[]>(`${this.baseUrl}/${endpoint}`)
       .pipe(
         map(response => response),
         catchError(this.handleError)
@@ -20,9 +20,33 @@ export class ApiService {
   }
 
   get(endpoint: string, id: Number): Observable<ITextNotes> {
-    return this.http.get<ITextNotes>(`${this.apiUrl}/${endpoint}/${id}`)
+    return this.http.get<ITextNotes>(`${this.baseUrl}/${endpoint}/${id}`)
       .pipe(
         map(response => response),
+        catchError(this.handleError)
+      );
+  }
+
+  post(endpoint: string, data: ITextNotes): Observable<ITextNotes> {
+    return this.http.post<ITextNotes>(`${this.baseUrl}/${endpoint}`, data)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
+
+  put(endpoint: string, id: Number | undefined, data: ITextNotes): Observable<ITextNotes> {
+    return this.http.put<ITextNotes>(`${this.baseUrl}/${endpoint}/${id}`, data)
+      .pipe(
+        map(response => response),
+        catchError(this.handleError)
+      );
+  }
+
+  delete(endpoint: string, id: Number | undefined): Observable<boolean> {
+    return this.http.delete<void>(`${this.baseUrl}/${endpoint}/${id}`)
+      .pipe(
+        map(() => true),
         catchError(this.handleError)
       );
   }
