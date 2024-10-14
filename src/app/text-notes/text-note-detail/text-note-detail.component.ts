@@ -16,7 +16,6 @@ import Swal from 'sweetalert2';
   styleUrl: './text-note-detail.component.scss'
 })
 export class TextNoteDetailComponent implements OnInit {
-
   noteForm: FormGroup;
   $note: Observable<ITextNotes>;
   noteId: Number;
@@ -46,7 +45,15 @@ export class TextNoteDetailComponent implements OnInit {
     }
   }
 
-  createNote() {
+  formSubmit(): void {
+    if (this.noteId) {
+      this.editNote();
+    } else {
+      this.createNote();
+    }
+  }
+
+  createNote(): void {
     if (this.noteForm.valid) {
       const noteData = this.noteForm.value;
       this._apiService
@@ -64,7 +71,7 @@ export class TextNoteDetailComponent implements OnInit {
     }
   }
 
-  editNote() {
+  editNote(): void {
     if (this.noteForm.valid) {
       const noteData = this.noteForm.value;
       this._apiService

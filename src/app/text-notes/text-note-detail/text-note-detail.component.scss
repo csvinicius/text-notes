@@ -1,54 +1,65 @@
 @import '../../../styles.scss';
 
-.container {
-  background-color: $gray-color;
-  min-height: 100vh;
-}
+.text-note-detail {
+  height: 100vh;
+  background: $gray-color;
 
-.text-note-detail__container {
-  background-color: $white-color;
-  border-radius: $border-radius;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-  padding: $item-padding;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.text-note-detail__content {
-  cursor: pointer;
-
-  .text-note-detail__title {
-    color: $text-color;
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  .text-note-detail__text {
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0;
-  }
-
-  .text-note-detail__btn-save {
-    background-color: $primary-color;
-    color: $white-color;
-    border: none;
-    border-radius: $border-radius;
+  .text-note-detail__back {
+    max-width: 2rem;
+    margin: 1rem 0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 0.3rem 1rem;
+  }
 
-    &:hover {
-      background-color: darken($primary-color, 10%);
+  .text-note-detail__content {
+    background-color: $white-color;
+    border-radius: $border-radius;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 3rem 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+
+    .text-note-detail__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .text-note-detail__error-message {
+        font-size: 12px;
+        display: inline-block;
+        margin: 0 0 1rem;
+        color: $warn-color;
+      }
+
+      input,
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 0 0.5rem;
+        padding: 0.5rem;
+      }
+
+      textarea {
+        min-height: 8rem;
+      }
+    }
+
+    .text-note-detail__btn-save {
+      background-color: $primary-color;
+      color: $white-color;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
   }
-  
-  .text-note-detail__error-message {
-    color: $warn-color;
-  }
-
 }
