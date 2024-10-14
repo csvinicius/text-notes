@@ -33,6 +33,10 @@ export class TextNoteDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getNote();
+  }
+
+  getNote(): void {
     if (this.noteId) {
       this.$note = this._apiService.get('text-notes', this.noteId);
       this.$note.subscribe(note => {
