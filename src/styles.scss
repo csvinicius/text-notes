@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 // colors
 $primary-color: #06929f;
 $secondary-color: #003A40;
@@ -42,6 +46,14 @@ $border-radius: 0.2rem;
   max-width: $desktop-width;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.swal__popup-container {
+  font-size: 0.8rem;
+}
+
+.swal2-actions .swal2-confirm{
+  background-color: $primary-color;
 }
 
 // texts styles

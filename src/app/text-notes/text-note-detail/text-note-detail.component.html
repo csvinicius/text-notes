@@ -1,26 +1,73 @@
-@if(!noteId) {
-<div>
-  <h3>
-    <input type="text" [(ngModel)]="data.title" />
-  </h3>
-
-  <p>
-    <textarea [(ngModel)]="data.content"></textarea>
-  </p>
-
-  <button class="btn-add" (click)="createNote(data)">Salvar</button>
+<div class="container">
+  <div class="text-note-detail__container">
+    <div class="text-note-detail__content">
+      <img 
+        src="arrow-left-icon.svg" 
+        alt="ícone seta para a esquerda"
+        [routerLink]="'/'"
+      />
+      @if(!noteId) {
+        <div [formGroup]="noteForm">
+          <h3>
+            <input 
+              type="text" 
+              formControlName="title" 
+              placeholder="Título"
+            />
+            @if(noteForm.get('title')?.invalid && noteForm.get('title')?.touched) {
+              <div>
+                <span class="text-note-detail__error-message">*Campo obrigatório</span>
+              </div>
+            }
+          </h3>
+      
+          <p>
+            <textarea 
+              formControlName="content" 
+              placeholder="Conteúdo"
+            ></textarea>
+            @if(noteForm.get('content')?.invalid && noteForm.get('content')?.touched) {
+              <div>
+                <span class="text-note-detail__error-message">*Campo obrigatório</span>
+              </div>
+            }
+          </p>
+      
+          <button class="text-note-detail__btn-save" (click)="createNote()" [disabled]="noteForm.invalid">Salvar</button>
+        </div>
+      }  @else {
+        <div *ngIf="$note | async as note; else loading" [formGroup]="noteForm">
+          <h3>
+            <input 
+              type="text" 
+              formControlName="title" 
+              placeholder="Título"
+            />
+            @if(noteForm.get('title')?.invalid && noteForm.get('title')?.touched) {
+              <div>
+                <span class="text-note-detail__error-message">*Campo obrigatório</span>
+              </div>
+            }
+          </h3>
+      
+          <p>
+            <textarea 
+              formControlName="content" 
+              placeholder="Conteúdo"
+            ></textarea>
+            @if(noteForm.get('content')?.invalid && noteForm.get('content')?.touched) {
+              <div>
+                <span class="text-note-detail__error-message">*Campo obrigatório</span>
+              </div>
+            }
+          </p>
+      
+          <button class="text-note-detail__btn-save" (click)="editNote()" [disabled]="noteForm.invalid">Salvar</button>
+        </div>
+        <ng-template #loading>
+          <div>Loading...</div>
+        </ng-template>
+      }
+    </div>
+  </div>
 </div>
-} @else {
-<div *ngIf="$note | async as note; else loading">
-  <h3>
-    <input type="text" [(ngModel)]="note.title" />
-  </h3>
-
-  <p>
-    <textarea [(ngModel)]="note.content"></textarea>
-  </p>
-  <button class="btn-add" (click)="createNote(data)">Salvar</button>
-</div>
-<ng-template #loading>
-  <div>Loading...</div>
-</ng-template>}

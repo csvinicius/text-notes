@@ -3,7 +3,7 @@
     <h3 class="text-note-item__title">{{ note.title }}</h3>
     <p class="text-note-item__text">{{ note.content }}</p>
   </div>
-  <button class="text-note-item__btn text-note-item__btn-delete" (click)="deleteNote(note.id)">
+  <button class="text-note-item__btn text-note-item__btn-delete" (click)="deleteNote(note.id, note.title)">
     Excluir
   </button>
 </div>
